@@ -21,22 +21,61 @@ JSON documents classified by collections.
 #### COLLECTIONS
 * **Tables**
   * **Brands**
-    * fields
+    * _Id
+    * Name <string>
+    * Country <string>
+    * StartingDate
 
   * **Vehicles**
-    * fields
+    * _Id
+    * Year
+    * Name
+    * Brand
+    * Type ENUM
+    * Description
+    * colors available
+    * Engine type
+    * Fuel type
+    * Transmission (Manual, automatic)
 
   * **AftermarketCompanies**
-    * fields
+    * _Id
+    * Name
+    * Address 
+    * City, 
+    * State
+    * Country
+    * Brands work with
+    * Certified Mechanics
+    * Vehicles
 
   * **Parts**
-    * fields
+    * _Id
+    * Name
+    * Brand
+    * Vehicles
+    * Quality
 
-  * **Technicians**
-    * fields
+  * **CarDealerFranchise**
+    * _Id
+    * Name
+    * Brand
+    * Address 
+    * City, 
+    * State
+    * Country
+    * PhoneNumber
+    * Emails
 
   * **Users**
-    * fields
+    * _Id
+    * UserName
+    * Email
+    * First Name
+    * Last Name
+    * Account Type [Admin, User, Mechanic]
+    * PhoneNumber
+    * Password Hash
 
 
 
