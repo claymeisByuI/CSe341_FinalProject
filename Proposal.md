@@ -24,7 +24,11 @@ JSON documents classified by collections.
     * _Id
     * Name <string>
     * Country <string>
-    * StartingDate
+    * StartingDate	_Id
+    *	Logo image? (Base64)
+    * Headquarters location
+    * Founders
+
 
   * **Vehicles**
     * _Id
