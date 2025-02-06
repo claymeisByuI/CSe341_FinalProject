@@ -1,4 +1,15 @@
 const swaggerAutogen = require('swagger-autogen')({ openapi: '3.0.0' });
+const mongooseToSwagger = require('mongoose-to-swagger');
+
+const partsModel = require('./models/partsModel');
+const userModel = require('./models/userModel');
+const vehicleModel = require('./models/vehicleModel');
+const mongoose = require('mongoose');
+
+const partsSchema = mongooseToSwagger(partsModel);
+const userSchema = mongooseToSwagger(userModel);
+const vehicleSchema = mongooseToSwagger(vehicleModel);
+
 const doc = {
   openapi: '3.0.0',
   info: {
@@ -7,7 +18,7 @@ const doc = {
   },
   servers: [
     {
-      url: 'http://localhost:8080',
+      url: 'http://localhost:3000',
       description: 'Local development server',
     },
     {
@@ -15,6 +26,14 @@ const doc = {
       description: 'render server',
     },
   ],
+  components: {
+    schemas: {
+      Part: partsSchema.properties,
+      User: userSchema.properties,
+      Vehicle: vehicleSchema.properties,
+    },
+  },
+
 };
 
 const outputFile = './swagger.json';

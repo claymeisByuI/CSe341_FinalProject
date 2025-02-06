@@ -1,11 +1,20 @@
 const mongoose = require('mongoose');
 
 const partSchema = new mongoose.Schema({
-  brand: { type: mongoose.Schema.Types.ObjectId, ref: 'Brand', required: true },
-  name: { type: String, required: true },
-  quality: { type: String, enum: ['OEM', 'Aftermarket', 'Used'], required: true },
-  vehicles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle' }],
-  createdAt: { type: Date, default: Date.now },
+  Brand: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (v) {
+        return /^[A-Za-z0-9 ]+$/.test(v);
+      },
+      message: (props) => `${props.value} remember its only alphanumeric characters.!`,
+    },
+  },
+  Name: { type: String, required: true },
+  Quality: { type: String, enum: ['OEM', 'Aftermarket', 'Used'], required: true },
+  Vehicles: [{ type: String }],
+  CreatedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Part', partSchema);
+module.exports = mongoose.model('Parts', partSchema, 'Parts');

@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080",
+      "url": "http://localhost:3000",
       "description": "Local development server"
     },
     {
@@ -28,6 +28,29 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Part"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Part Creation",
+                  "value": {
+                    "Brand": "",
+                    "Name": "",
+                    "Quality": "OEM",
+                    "Vehicles": [
+                      ""
+                    ]
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -380,7 +403,7 @@
         }
       }
     },
-    "/vehicle/vehicles": {
+    "/vehicle/": {
       "post": {
         "tags": [
           "Vehicle"
@@ -392,6 +415,16 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vehicle"
+              }
+            }
           }
         }
       },
@@ -441,7 +474,7 @@
         }
       }
     },
-    "/vehicle/vehicles/findByBrand": {
+    "/vehicle/findByBrand": {
       "get": {
         "tags": [
           "Vehicle"
@@ -466,7 +499,7 @@
         }
       }
     },
-    "/vehicle/vehicles/findByYear": {
+    "/vehicle/findByYear": {
       "get": {
         "tags": [
           "Vehicle"
@@ -491,7 +524,7 @@
         }
       }
     },
-    "/vehicle/vehicles/findByType": {
+    "/vehicle/findByType": {
       "get": {
         "tags": [
           "Vehicle"
@@ -516,7 +549,7 @@
         }
       }
     },
-    "/vehicle/vehicles/{vehiclesId}": {
+    "/vehicle/{vehiclesId}": {
       "get": {
         "tags": [
           "Vehicle"
@@ -568,6 +601,318 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Part": {
+        "type": "object",
+        "properties": {
+          "Brand": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Name": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Quality": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "enum": {
+                "type": "array",
+                "example": [
+                  "OEM",
+                  "Aftermarket",
+                  "Used"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "Vehicles": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "Email": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "FirstName": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "LastName": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "PasswordHash": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Username": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "AccountType": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "enum": {
+                "type": "array",
+                "example": [
+                  "admin",
+                  "customer"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "PhoneNumber": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          }
+        }
+      },
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "Brand": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Description": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "required": {
+                "type": "boolean",
+                "example": false
+              }
+            }
+          },
+          "Engine_type": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Fuel_type": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Name": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Transmission": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "Year": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "number"
+              }
+            }
+          },
+          "Type": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "colors_available": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
+              }
+            }
+          },
+          "_id": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
           }
         }
       }

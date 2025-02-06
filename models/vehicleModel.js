@@ -2,16 +2,25 @@ const mongoose = require('mongoose');
 
 // models/vehicleModel.js
 const vehicleSchema = new mongoose.Schema({
-  brand: { type: String, required: true },
-  description: { type: String, required: false },
-  engine_type: { type: String, required: true },
-  fuel_type: { type: String, required: true },
-  name: { type: String, required: true },
-  transmission: { type: String, required: true },
-  year: { type: Number, required: true },
-  type: { type: String, required: true },
-  colors_available: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
+  Brand: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (v) {
+        return /^[A-Z]/.test(v);
+      },
+      message: (props) => `${props.value} remember its case sensitive!`,
+    },
+  },
+  Description: { type: String, required: false },
+  Engine_type: { type: String, required: true },
+  Fuel_type: { type: String, required: true },
+  Name: { type: String, required: true },
+  Transmission: { type: String, required: true },
+  Year: { type: Number, required: true },
+  Type: { type: String, required: true },
+  colors_available: [{ type: String, required: true }],
+  CreatedAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Vehicle', vehicleSchema);
+module.exports = mongoose.model('Vehicles', vehicleSchema, 'Vehicles');

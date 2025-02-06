@@ -4,6 +4,25 @@ const Part = require('../models/partsModel');
 exports.createPart = async (req, res) => {
   /*
      #swagger.tags = ['Parts']
+      #swagger.requestBody = {
+         required: true,
+         content: {
+           "application/json": {
+             schema: { $ref: "#/components/schemas/Part" },
+             examples: {
+               ExampleRequest: {
+                 summary: "Sample Part Creation",
+                 value: {
+                      "Brand": "",
+                      "Name": "",
+                      "Quality": "OEM",
+                      "Vehicles": [""],
+                 }
+               }
+             }
+          }
+        }
+     }
   */
   try {
     const part = new Part(req.body);

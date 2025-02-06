@@ -5,6 +5,14 @@ const Vehicle = require('../models/vehicleModel');
 exports.createVehicle = async (req, res) => {
   /*
    #swagger.tags = ['Vehicle']
+        #swagger.requestBody = {
+         required: true,
+         content: {
+           "application/json": {
+             schema: { $ref: "#/components/schemas/Vehicle" },
+          }
+        }
+     }
   */
   try {
     const vehicle = new Vehicle(req.body);
