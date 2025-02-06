@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const partsController = require('../controllers/partsController');
 
-router.post('/parts', partsController.createPart);
-router.put('/parts/:partsId', partsController.updatePart);
-router.get('/parts', partsController.getAllParts);
-router.get('/parts/findByBrand', partsController.getPartsByBrand);
-router.get('/parts/findByVehicle', partsController.getPartsByVehicle);
-router.get('/parts/findByQuality', partsController.getPartsByQuality);
-router.get('/parts/:partsId', partsController.getPartById);
-router.delete('/parts/:partsId', partsController.deletePart);
+router.post('/', partsController.createPart);
+router.put('/:partsId', partsController.updatePart);
+router.get('/', partsController.getAllParts);
+router.get('/findByBrand', partsController.getPartsByBrand);
+router.get('/findByVehicle', partsController.getPartsByVehicle);
+router.get('/findByQuality', partsController.getPartsByQuality);
+router.get('/:partsId', partsController.getPartById);
+router.delete('/:partsId', partsController.deletePart);
 
 module.exports = router;
