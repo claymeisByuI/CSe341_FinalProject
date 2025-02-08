@@ -1,0 +1,8 @@
+/database
+/node_modules
+.idea
+.env
+.prettierrc
+eslint.config.mjs
+pnpm-lock.yaml
+package-lock.json
