@@ -1,5 +1,8 @@
-# Node Modules.
+/database
 /node_modules
 .idea
-# Enviroment File.
-.env 
+.env
+# .prettierrc
+eslint.config.mjs
+.pnpm-lock.yaml
+.package-lock.json
