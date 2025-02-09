@@ -37,6 +37,14 @@ exports.createPart = async (req, res) => {
 exports.updatePart = async (req, res) => {
   /*
      #swagger.tags = ['Parts']
+    #swagger.requestBody = {
+         required: true,
+         content: {
+           "application/json": {
+             schema: { $ref: "#/components/schemas/Part" },
+          }
+        }
+     }
   */
   try {
     const part = await Part.findByIdAndUpdate(req.params.partsId, req.body, { new: true });

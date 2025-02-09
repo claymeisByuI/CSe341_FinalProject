@@ -3,9 +3,17 @@ const User = require('../models/userModel');
 // Create a single user
 exports.createUser = async (req, res) => {
   /*
-     #swagger.tags = ['Users']
+   #swagger.tags = ['Users']
+        #swagger.requestBody = {
+        description: 'Create A User',
+         required: true,
+         content: {
+           "application/json": {
+             schema: { $ref: "#/components/schemas/User" },
+          }
+        }
+     }
   */
-
   try {
     const user = new User(req.body);
     await user.save();
@@ -19,6 +27,18 @@ exports.createUser = async (req, res) => {
 exports.createUsersWithArray = async (req, res) => {
   /*
      #swagger.tags = ['Users']
+      #swagger.requestBody = {
+        description: 'Create A from array',
+         required: true,
+         content: {
+           "application/json": {
+             schema: {
+            type: "array",
+            items: { $ref: "#/components/schemas/User" }
+            }
+          }
+       }
+     }
   */
   try {
     const users = await User.insertMany(req.body);
@@ -32,6 +52,16 @@ exports.createUsersWithArray = async (req, res) => {
 exports.createUsersWithList = async (req, res) => {
   /*
      #swagger.tags = ['Users']
+           description: 'Create by list',
+      content: {
+        "application/json": {
+          schema: {
+            type: "array",
+            items: { $ref: "#/components/schemas/User" }
+          }
+
+        }
+      }
   */
   try {
     const users = await User.insertMany(req.body);
@@ -56,6 +86,18 @@ exports.logoutUser = async (req, res) => {
 exports.findUsersByType = async (req, res) => {
   /*
      #swagger.tags = ['Users']
+      #swagger.responses[200] = {
+      description: 'Find a user By Type',
+      content: {
+        "application/json": {
+          schema: {
+            type: "array",
+            items: { $ref: "#/components/schemas/User" }
+          }
+
+        }
+      }
+   }
   */
   try {
     const users = await User.find({ type: req.query.type });
@@ -69,6 +111,12 @@ exports.findUsersByType = async (req, res) => {
 exports.getUserByUsername = async (req, res) => {
   /*
      #swagger.tags = ['Users']
+     content: {
+        "application/json": {
+          schema: { $ref: "#/components/schemas/User" }
+        }
+      }
+
   */
   try {
     const user = await User.findOne({ username: req.params.username });
@@ -83,6 +131,12 @@ exports.getUserByUsername = async (req, res) => {
 exports.updateUserByUsername = async (req, res) => {
   /*
      #swagger.tags = ['Users']
+     content: {
+        "application/json": {
+          schema: { $ref: "#/components/schemas/User" }
+        }
+      }
+
   */
   try {
     const user = await User.findOneAndUpdate({ username: req.params.username }, req.body, { new: true });

@@ -95,6 +95,16 @@
           "404": {
             "description": "Not Found"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Part"
+              }
+            }
+          }
         }
       },
       "get": {
@@ -240,6 +250,17 @@
           "400": {
             "description": "Bad Request"
           }
+        },
+        "requestBody": {
+          "description": "Create A User",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
         }
       }
     },
@@ -255,6 +276,20 @@
           },
           "400": {
             "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "description": "Create A from array",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
           }
         }
       }
@@ -312,7 +347,17 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Find a user By Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request"
@@ -433,6 +478,17 @@
           "Vehicle"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "vehicleId",
+            "in": "query",
+            "description": "ID of the vehicle to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -445,15 +501,11 @@
           }
         },
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/Vehicle"
               }
             }
           }

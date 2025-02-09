@@ -27,6 +27,20 @@ exports.createVehicle = async (req, res) => {
 exports.updateVehicle = async (req, res) => {
   /*
    #swagger.tags = ['Vehicle']
+       #swagger.parameters['vehicleId'] = {
+         in: 'query',
+         description: 'ID of the vehicle to update',
+         required: true,
+         schema: { type: 'string' }
+    }
+    #swagger.requestBody = {
+         required: true,
+         content: {
+           "application/json": {
+             schema: { $ref: "#/components/schemas/Vehicle" },
+          }
+        }
+     }
   */
   try {
     const vehicle = await Vehicle.findByIdAndUpdate(req.body.id, req.body, { new: true });
