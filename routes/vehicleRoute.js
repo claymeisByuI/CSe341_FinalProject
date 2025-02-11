@@ -3,7 +3,7 @@ const router = express.Router();
 const vehiclesController = require('../controllers/vehicleController');
 
 router.post('/', vehiclesController.createVehicle);
-router.put('/', vehiclesController.updateVehicle);
+router.put('/:vehicleId', vehiclesController.updateVehicle);
 router.get('/', vehiclesController.getVehicles);
 router.get('/findByBrand', vehiclesController.findVehiclesByBrand);
 router.get('/findByYear', vehiclesController.findVehiclesByYear);

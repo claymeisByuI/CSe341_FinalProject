@@ -13,7 +13,7 @@ Please refer to the [Proposal.md](https://github.com/claymeisByuI/CSe341_FinalPr
 | ✅  | API Swagger documentation for all API routes         | Clayton               |
 | ✅  | Users Controller                                     | Johann                |
 | ✅  | Parts Controller                                     | Ivan                  |
-|     | Brands Controller                                    | Clayton               |
+| ✅  | Brands Controller                                    | Clayton               |
 |     | CarDealershipFranchise Controller                    | Victor                |
 | ✅  | Vehicle Controller                                   | Johann                |
 |     | Aftermarket Controller                               | Ivan                  |

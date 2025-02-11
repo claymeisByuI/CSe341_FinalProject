@@ -62,6 +62,18 @@ exports.createUsersWithList = async (req, res) => {
 
         }
       }
+        #swagger.requestBody = {
+        description: 'Create A from array',
+         required: true,
+         content: {
+           "application/json": {
+             schema: {
+            type: "array",
+            items: { $ref: "#/components/schemas/User" }
+            }
+          }
+       }
+     }
   */
   try {
     const users = await User.insertMany(req.body);
@@ -100,7 +112,7 @@ exports.findUsersByType = async (req, res) => {
    }
   */
   try {
-    const users = await User.find({ type: req.query.type });
+    const users = await User.find({ Type: req.query.type });
     res.status(200).json(users);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -119,7 +131,7 @@ exports.getUserByUsername = async (req, res) => {
 
   */
   try {
-    const user = await User.findOne({ username: req.params.username });
+    const user = await User.findOne({ Username: req.params.username });
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json(user);
   } catch (error) {
@@ -139,7 +151,7 @@ exports.updateUserByUsername = async (req, res) => {
 
   */
   try {
-    const user = await User.findOneAndUpdate({ username: req.params.username }, req.body, { new: true });
+    const user = await User.findOneAndUpdate({ Username: req.params.username }, req.body, { new: true });
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json(user);
   } catch (error) {
@@ -153,7 +165,7 @@ exports.deleteUserByUsername = async (req, res) => {
      #swagger.tags = ['Users']
   */
   try {
-    const user = await User.findOneAndDelete({ username: req.params.username });
+    const user = await User.findOneAndDelete({ Username: req.params.username });
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json({ message: 'User deleted successfully' });
   } catch (error) {

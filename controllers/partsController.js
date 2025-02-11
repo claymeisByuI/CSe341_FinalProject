@@ -45,6 +45,30 @@ exports.updatePart = async (req, res) => {
           }
         }
      }
+     #swagger.responses[200] = {
+       description: 'Part updated successfully',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Part' }
+         }
+       }
+     }
+     #swagger.responses[400] = {
+       description: 'Bad Request',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Error' }
+         }
+       }
+     }
+     #swagger.responses[404] = {
+       description: 'Part not found',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Error' }
+         }
+       }
+     }
   */
   try {
     const part = await Part.findByIdAndUpdate(req.params.partsId, req.body, { new: true });
@@ -59,7 +83,23 @@ exports.updatePart = async (req, res) => {
 exports.getAllParts = async (req, res) => {
   /*
     #swagger.tags = ['Parts']
- */
+    #swagger.responses[200] = {
+      description: 'List of all parts',
+      content: {
+        'application/json': {
+          schema: { type: 'array', items: { $ref: '#/components/schemas/Part' } }
+        }
+      }
+    }
+    #swagger.responses[400] = {
+      description: 'Bad Request',
+      content: {
+        'application/json': {
+          schema: { $ref: '#/components/schemas/Error' }
+        }
+      }
+    }
+  */
   try {
     const parts = await Part.find();
     res.status(200).json(parts);
@@ -72,9 +112,25 @@ exports.getAllParts = async (req, res) => {
 exports.getPartsByBrand = async (req, res) => {
   /*
      #swagger.tags = ['Parts']
+     #swagger.responses[200] = {
+       description: 'List of parts by brand',
+       content: {
+         'application/json': {
+           schema: { type: 'array', items: { $ref: '#/components/schemas/Part' } }
+         }
+       }
+     }
+     #swagger.responses[400] = {
+       description: 'Bad Request',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Error' }
+         }
+       }
+     }
   */
   try {
-    const parts = await Part.find({ brand: req.query.brand });
+    const parts = await Part.find({ Brand: req.query.brand });
     res.status(200).json(parts);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -85,9 +141,25 @@ exports.getPartsByBrand = async (req, res) => {
 exports.getPartsByVehicle = async (req, res) => {
   /*
      #swagger.tags = ['Parts']
+     #swagger.responses[200] = {
+       description: 'List of parts by vehicle',
+       content: {
+         'application/json': {
+           schema: { type: 'array', items: { $ref: '#/components/schemas/Part' } }
+         }
+       }
+     }
+     #swagger.responses[400] = {
+       description: 'Bad Request',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Error' }
+         }
+       }
+     }
   */
   try {
-    const parts = await Part.find({ vehicles: req.query.vehicle });
+    const parts = await Part.find({ Vehicles: req.query.vehicle });
     res.status(200).json(parts);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -98,9 +170,25 @@ exports.getPartsByVehicle = async (req, res) => {
 exports.getPartsByQuality = async (req, res) => {
   /*
     #swagger.tags = ['Parts']
- */
+    #swagger.responses[200] = {
+      description: 'List of parts by quality',
+      content: {
+        'application/json': {
+          schema: { type: 'array', items: { $ref: '#/components/schemas/Part' } }
+        }
+      }
+    }
+    #swagger.responses[400] = {
+      description: 'Bad Request',
+      content: {
+        'application/json': {
+          schema: { $ref: '#/components/schemas/Error' }
+        }
+      }
+    }
+  */
   try {
-    const parts = await Part.find({ quality: req.query.quality });
+    const parts = await Part.find({ Quality: req.query.quality });
     res.status(200).json(parts);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -111,6 +199,30 @@ exports.getPartsByQuality = async (req, res) => {
 exports.getPartById = async (req, res) => {
   /*
      #swagger.tags = ['Parts']
+     #swagger.responses[200] = {
+       description: 'Part details',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Part' }
+         }
+       }
+     }
+     #swagger.responses[400] = {
+       description: 'Bad Request',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Error' }
+         }
+       }
+     }
+     #swagger.responses[404] = {
+       description: 'Part not found',
+       content: {
+         'application/json': {
+           schema: { $ref: '#/components/schemas/Error' }
+         }
+       }
+     }
   */
   try {
     const part = await Part.findById(req.params.partsId);
@@ -125,7 +237,26 @@ exports.getPartById = async (req, res) => {
 exports.deletePart = async (req, res) => {
   /*
     #swagger.tags = ['Parts']
- */
+    #swagger.responses[200] = {
+      description: 'Part deleted successfully',
+    }
+    #swagger.responses[400] = {
+      description: 'Bad Request',
+      content: {
+        'application/json': {
+          schema: { $ref: '#/components/schemas/Error' }
+        }
+      }
+    }
+    #swagger.responses[404] = {
+      description: 'Part not found',
+      content: {
+        'application/json': {
+          schema: { $ref: '#/components/schemas/Error' }
+        }
+      }
+    }
+  */
   try {
     const part = await Part.findByIdAndDelete(req.params.partsId);
     if (!part) return res.status(404).json({ message: 'Part not found' });
