@@ -5,6 +5,10 @@ const bodyParser = require('body-parser');
 
 const swaggerSetup = require('./swagger'); // Import swagger setup promise
 
+const passport = require("passport");
+const session = require("express-session");
+const GitHubStrategy = require("passport-github2").Strategy;
+
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const port = process.env.PORT || 3000; // Port number
@@ -24,11 +28,70 @@ async function startServer() {
         console.error('Cannot connect to Mongodb', err);
       });
 
+      passport.use(
+        new GitHubStrategy(
+          {
+            clientID: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+            callbackURL: process.env.GITHUB_CLIENT_CALLBACKURL,
+          },
+          async function (accessToken, refreshToken, profile, done) {
+            var user = await userRepository.findUserByUserName(profile.username);
+            if (!user) {
+              user = new User({
+                Email: `${profile.username}@github.com`,
+                FirstName: profile.displayName,
+                LastName: profile.displayName,
+                Username: profile.username,
+                AccountType: 'admin',
+                PhoneNumber: '',
+              });
+              user.save();
+            }
+            return done(null, profile);
+          },
+        ),
+      );
+      passport.serializeUser((user, done) => {
+        done(null, user);
+      });
+      passport.deserializeUser((user, done) => {
+        done(null, user);
+      });
+      
+
     // APP
     app
       .use(bodyParser.json())
       .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+      .use(
+        session({
+          secret: "ThisisaSecretandshouldBeIntheENVFile",
+          resave: false,
+          saveUninitialized: true,
+        }),
+      )
+      .use(passport.initialize())
+      .use(passport.session())
       .use('/', require('./routes'))
+      .get("/", (req, res) => {
+        res.send(
+          req.session.user !== undefined
+            ? `Logged in as user ${req.session.user.displayName || req.session.user.username}`
+            : "Logged Out",
+        );
+      })
+      .get(
+        "/github/callback",
+        passport.authenticate("github", {
+          failureRedirect: "/api-docs",
+          session: false,
+        }),
+        (req, res) => {
+          req.session.user = req.user;
+          res.redirect("/");
+        },
+      )
       .listen(port, () => {
         console.log(`Server is running on port ${port}`);
       });

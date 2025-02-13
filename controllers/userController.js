@@ -83,17 +83,6 @@ exports.createUsersWithList = async (req, res) => {
   }
 };
 
-// User login
-exports.loginUser = async (req, res) => {
-  // Add authentication logic here
-  res.status(200).json({ message: 'User logged in' });
-};
-
-// User logout
-exports.logoutUser = async (req, res) => {
-  res.status(200).json({ message: 'User logged out' });
-};
-
 // Find users by type
 exports.findUsersByType = async (req, res) => {
   /*

@@ -1,3 +1,5 @@
+// Possibly depricated
+
 // You need to add bcrypt package using npm
  
 const mongoose = require('mongoose');

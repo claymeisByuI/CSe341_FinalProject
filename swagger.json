@@ -448,26 +448,6 @@
         }
       }
     },
-    "/user/login": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/user/logout": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/user/findByType": {
       "get": {
         "tags": [
@@ -1459,6 +1439,33 @@
           }
         }
       }
+    },
+    "/logout": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Logout",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "The task was successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1568,15 +1575,6 @@
             }
           },
           "LastName": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "PasswordHash": {
             "type": "object",
             "properties": {
               "type": {
