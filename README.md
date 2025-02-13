@@ -18,6 +18,7 @@ Please refer to the [Proposal.md](https://github.com/claymeisByuI/CSe341_FinalPr
 | ✅  | Vehicle Controller                                   | Johann                |
 |     | Aftermarket Controller                               | Ivan                  |
 |     | OAuth and Data restrictions                          | Group                 |
+|     | Tests                                                | Group                 |
 |     | Video presentation of node project,                  |                       |
 |     | all routes functioning, mongoDB data being modified, |                       |
 |     | and API documentation.                               |                       |
