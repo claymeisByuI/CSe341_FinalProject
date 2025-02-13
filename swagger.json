@@ -1583,7 +1583,7 @@
               }
             }
           },
-          "Username": {
+          "UserName": {
             "type": "object",
             "properties": {
               "type": {

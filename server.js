@@ -1,5 +1,6 @@
 const express = require('express'); // Import express
 const app = express(); // Initialize express
+const User = require('./models/userModel');
 
 const bodyParser = require('body-parser');
 
@@ -36,15 +37,15 @@ async function startServer() {
             callbackURL: process.env.GITHUB_CLIENT_CALLBACKURL,
           },
           async function (accessToken, refreshToken, profile, done) {
-            var user = await userRepository.findUserByUserName(profile.username);
+            var user = await User.findOne({ UserName: profile.username })
             if (!user) {
               user = new User({
                 Email: `${profile.username}@github.com`,
                 FirstName: profile.displayName,
                 LastName: profile.displayName,
-                Username: profile.username,
+                UserName: profile.username,
                 AccountType: 'admin',
-                PhoneNumber: '',
+                PhoneNumber: '8005551212',
               });
               user.save();
             }

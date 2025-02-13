@@ -120,7 +120,7 @@ exports.getUserByUsername = async (req, res) => {
 
   */
   try {
-    const user = await User.findOne({ Username: req.params.username });
+    const user = await User.findOne({ UserName: req.params.username });
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json(user);
   } catch (error) {
@@ -140,7 +140,7 @@ exports.updateUserByUsername = async (req, res) => {
 
   */
   try {
-    const user = await User.findOneAndUpdate({ Username: req.params.username }, req.body, { new: true });
+    const user = await User.findOneAndUpdate({ UserName: req.params.username }, req.body, { new: true });
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json(user);
   } catch (error) {
@@ -154,7 +154,7 @@ exports.deleteUserByUsername = async (req, res) => {
      #swagger.tags = ['Users']
   */
   try {
-    const user = await User.findOneAndDelete({ Username: req.params.username });
+    const user = await User.findOneAndDelete({ UserName: req.params.username });
     if (!user) return res.status(404).json({ message: 'User not found' });
     res.status(200).json({ message: 'User deleted successfully' });
   } catch (error) {

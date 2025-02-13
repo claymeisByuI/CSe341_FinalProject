@@ -6,14 +6,7 @@ router.use("/login", passport.authenticate("github"), (req, res, next) => {
   /*
         #swagger.tags = ['Authentication']
         #swagger.summary = 'Login'
-        #swagger.responses[201] = {
-          description: 'The task was successfully created.',
-          content: {
-            "application/json": {
-              schema: { $ref: "#/components/schemas/Task" }
-            }
-          }
-        }
+        #swagger.responses[201] = { description: 'The task was successfully created.'}
         #swagger.responses[400] = { description: 'Invalid input' }
         #swagger.responses[500] = { description: 'Server error' }
       */
