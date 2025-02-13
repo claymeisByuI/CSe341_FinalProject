@@ -1296,7 +1296,220 @@
           }
         }
       }
+    },
+    "/aftermarketComp/": {
+  "post": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "responses": {
+      "201": {
+        "description": "Created"
+      },
+      "400": {
+        "description": "Bad Request"
+      }
+    },
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/AftermarketCompany"
+          },
+          "examples": {
+            "ExampleRequest": {
+              "summary": "Sample Aftermarket Company Creation",
+              "value": {
+                "Name": "ABC Auto Parts",
+                "Address": "123 Main St",
+                "City": "Los Angeles",
+                "State": "CA",
+                "Country": "USA",
+                "Brands": ["Toyota", "Honda"],
+                "CertifiedMechanics": 10,
+                "Vehicles": ["Corolla", "Civic"]
+              }
+            }
+          }
+        }
+      }
     }
+  },
+  "get": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      }
+    }
+  }
+},
+"/aftermarketComp/{aftermarketId}": {
+  "put": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "parameters": [
+      {
+        "name": "aftermarketId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      },
+      "404": {
+        "description": "Not Found"
+      }
+    },
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/AftermarketCompany"
+          },
+          "examples": {
+            "ExampleRequest": {
+              "summary": "Sample Aftermarket Company Update",
+              "value": {
+                "Name": "ABC Auto Parts",
+                "Address": "123 Main St",
+                "City": "Los Angeles",
+                "State": "CA",
+                "Country": "USA",
+                "Brands": ["Toyota", "Honda"],
+                "CertifiedMechanics": 15,
+                "Vehicles": ["Corolla", "Civic", "Accord"]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "get": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "parameters": [
+      {
+        "name": "aftermarketId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      },
+      "404": {
+        "description": "Not Found"
+      }
+    }
+  },
+  "delete": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "parameters": [
+      {
+        "name": "aftermarketId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      },
+      "404": {
+        "description": "Not Found"
+      }
+    }
+  }
+},
+"/aftermarketComp/findByBrand": {
+  "get": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "parameters": [
+      {
+        "name": "brand",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      }
+    }
+  }
+},
+"/aftermarketComp/findByVehicle": {
+  "get": {
+    "tags": [
+      "AftermarketCompanies"
+    ],
+    "description": "",
+    "parameters": [
+      {
+        "name": "vehicle",
+        "in": "query",
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      }
+    }
+  }
+}
   },
   "components": {
     "schemas": {
@@ -1720,7 +1933,59 @@
             }
           }
         }
-      }
+      },
+      "AftermarketCompany": {
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "example": "ABC Auto Parts"
+    },
+    "Address": {
+      "type": "string",
+      "example": "123 Main St"
+    },
+    "City": {
+      "type": "string",
+      "example": "Los Angeles"
+    },
+    "State": {
+      "type": "string",
+      "example": "CA"
+    },
+    "Country": {
+      "type": "string",
+      "example": "USA"
+    },
+    "Brands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": ["Toyota", "Honda"]
+    },
+    "CertifiedMechanics": {
+      "type": "integer",
+      "example": 10
+    },
+    "Vehicles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": ["Corolla", "Civic"]
+    },
+    "CreatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-10-01T12:00:00Z"
+    },
+    "_id": {
+      "type": "string",
+      "example": "64f8b7e1b1b2c3d4e5f6a7b8"
+    }
+  }
+}
     },
     "examples": {
       "Vehicle": {
