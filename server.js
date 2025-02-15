@@ -6,9 +6,9 @@ const bodyParser = require('body-parser');
 
 const swaggerSetup = require('./swagger'); // Import swagger setup promise
 
-const passport = require("passport");
-const session = require("express-session");
-const GitHubStrategy = require("passport-github2").Strategy;
+const passport = require('passport');
+const session = require('express-session');
+const GitHubStrategy = require('passport-github2').Strategy;
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -24,42 +24,43 @@ async function startServer() {
     await swaggerSetup; // Wait for swagger setup to complete
     models.db.mongoose
       .connect(utils.url, {})
-      .then(() => {console.log('Mongoose connected through MongoDB!');})
+      .then(() => {
+        console.log('Mongoose connected through MongoDB!');
+      })
       .catch((err) => {
         console.error('Cannot connect to Mongodb', err);
       });
 
-      passport.use(
-        new GitHubStrategy(
-          {
-            clientID: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET,
-            callbackURL: process.env.GITHUB_CLIENT_CALLBACKURL,
-          },
-          async function (accessToken, refreshToken, profile, done) {
-            var user = await User.findOne({ UserName: profile.username })
-            if (!user) {
-              user = new User({
-                Email: `${profile.username}@github.com`,
-                FirstName: profile.displayName,
-                LastName: profile.displayName,
-                UserName: profile.username,
-                AccountType: 'admin',
-                PhoneNumber: '8005551212',
-              });
-              user.save();
-            }
-            return done(null, profile);
-          },
-        ),
-      );
-      passport.serializeUser((user, done) => {
-        done(null, user);
-      });
-      passport.deserializeUser((user, done) => {
-        done(null, user);
-      });
-      
+    passport.use(
+      new GitHubStrategy(
+        {
+          clientID: process.env.GITHUB_CLIENT_ID,
+          clientSecret: process.env.GITHUB_CLIENT_SECRET,
+          callbackURL: process.env.GITHUB_CLIENT_CALLBACKURL,
+        },
+        async function (accessToken, refreshToken, profile, done) {
+          var user = await User.findOne({ UserName: profile.username });
+          if (!user) {
+            user = new User({
+              Email: `${profile.username}@github.com`,
+              FirstName: profile.displayName,
+              LastName: profile.displayName,
+              UserName: profile.username,
+              AccountType: 'admin',
+              PhoneNumber: '8005551212',
+            });
+            user.save();
+          }
+          return done(null, profile);
+        },
+      ),
+    );
+    passport.serializeUser((user, done) => {
+      done(null, user);
+    });
+    passport.deserializeUser((user, done) => {
+      done(null, user);
+    });
 
     // APP
     app
@@ -67,7 +68,7 @@ async function startServer() {
       .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
       .use(
         session({
-          secret: "ThisisaSecretandshouldBeIntheENVFile",
+          secret: 'ThisisaSecretandshouldBeIntheENVFile',
           resave: false,
           saveUninitialized: true,
         }),
@@ -75,22 +76,22 @@ async function startServer() {
       .use(passport.initialize())
       .use(passport.session())
       .use('/', require('./routes'))
-      .get("/", (req, res) => {
+      .get('/', (req, res) => {
         res.send(
           req.session.user !== undefined
             ? `Logged in as user ${req.session.user.displayName || req.session.user.username}`
-            : "Logged Out",
+            : 'Logged Out',
         );
       })
       .get(
-        "/github/callback",
-        passport.authenticate("github", {
-          failureRedirect: "/api-docs",
+        '/github/callback',
+        passport.authenticate('github', {
+          failureRedirect: '/api-docs',
           session: false,
         }),
         (req, res) => {
           req.session.user = req.user;
-          res.redirect("/");
+          res.redirect('/');
         },
       )
       .listen(port, () => {

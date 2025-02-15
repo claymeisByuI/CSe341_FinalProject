@@ -9,6 +9,10 @@ router.get('/', aftermarketCompaniesController.getAftermarketCompanies);
 router.get('/findByBrand', aftermarketCompaniesController.findAftermarketCompaniesByBrand);
 router.get('/findByVehicle', aftermarketCompaniesController.findAftermarketCompaniesByVehicle);
 router.get('/:aftermarketId', aftermarketCompaniesController.getAftermarketCompanyById);
-router.delete('/:aftermarketId', validation.isAuthenticated, aftermarketCompaniesController.deleteAftermarketCompanyById);
+router.delete(
+  '/:aftermarketId',
+  validation.isAuthenticated,
+  aftermarketCompaniesController.deleteAftermarketCompanyById,
+);
 
 module.exports = router;

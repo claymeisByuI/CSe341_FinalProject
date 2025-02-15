@@ -108,7 +108,7 @@ exports.getAllBrands = async (req, res) => {
     const brands = await Brands.find({});
     res.send(brands);
   } catch (error) {
-    res.status(500).send();
+    res.status(500).send(error);
   }
 };
 
@@ -137,7 +137,7 @@ exports.findByCountry = async (req, res) => {
     const brands = await Brands.find({ Country: req.query.country });
     res.send(brands);
   } catch (error) {
-    res.status(500).send();
+    res.status(500).send(error);
   }
 };
 
@@ -166,7 +166,7 @@ exports.findByName = async (req, res) => {
     const brands = await Brands.find({ Name: req.query.name });
     res.send(brands);
   } catch (error) {
-    res.status(500).send();
+    res.status(500).send(error);
   }
 };
 
@@ -206,7 +206,7 @@ exports.getBrandById = async (req, res) => {
     }
     res.send(brand);
   } catch (error) {
-    res.status(500).send();
+    res.status(500).send(error);
   }
 };
 
@@ -241,6 +241,6 @@ exports.deleteBrand = async (req, res) => {
     }
     res.send(brand);
   } catch (error) {
-    res.status(500).send();
+    res.status(500).send(error);
   }
 };

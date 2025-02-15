@@ -18,11 +18,10 @@ exports.updateAftermarketCompany = async (req, res) => {
    #swagger.tags = ['AftermarketCompanies']
   */
   try {
-    const company = await AftermarketCompany.findByIdAndUpdate(
-      req.params.aftermarketId,
-      req.body,
-      { new: true, runValidators: true }
-    );
+    const company = await AftermarketCompany.findByIdAndUpdate(req.params.aftermarketId, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!company) return res.status(404).json({ message: 'Aftermarket company not found' });
     res.status(200).json(company);
   } catch (error) {

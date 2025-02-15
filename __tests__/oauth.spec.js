@@ -2,16 +2,16 @@ const { checkPassword, getPasswordHash } = require('../utils/oauth');
 const assert = require('assert');
 const bcrypt = require('bcrypt');
 
-describe('OAuth Utilities', function() {
-  describe('checkPassword', function() {
-    it('should return true for correct password', async function() {
+describe('OAuth Utilities', function () {
+  describe('checkPassword', function () {
+    it('should return true for correct password', async function () {
       const plainPassword = 'I@mABas1cCl!3nt';
       const hash = await bcrypt.hash(plainPassword, 10);
       const result = await checkPassword(plainPassword, hash);
       assert.strictEqual(result, true);
     });
 
-    it('should return false for incorrect password', async function() {
+    it('should return false for incorrect password', async function () {
       const plainPassword = 'I@mABas1cCl!3nt';
       const hash = await bcrypt.hash(plainPassword, 10);
       const result = await checkPassword('wrongpassword', hash);
@@ -19,8 +19,8 @@ describe('OAuth Utilities', function() {
     });
   });
 
-  describe('getPasswordHash', function() {
-    it('should generate a hash for valid password', async function() {
+  describe('getPasswordHash', function () {
+    it('should generate a hash for valid password', async function () {
       const validPassword = 'I@mABas1cCl!3nt';
       const boundGetPasswordHash = getPasswordHash.bind({ PasswordHash: validPassword });
       const hashed = await boundGetPasswordHash();
@@ -28,7 +28,7 @@ describe('OAuth Utilities', function() {
       assert.strictEqual(isValid, true);
     });
 
-    it('should throw error for invalid password', async function() {
+    it('should throw error for invalid password', async function () {
       const invalidPassword = 'short1!';
       const boundGetPasswordHash = getPasswordHash.bind({ PasswordHash: invalidPassword });
       await assert.rejects(async () => {

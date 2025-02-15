@@ -1,8 +1,8 @@
-﻿const express = require("express");
+﻿const express = require('express');
 const router = express.Router();
-const passport = require("passport");
+const passport = require('passport');
 
-router.use("/login", passport.authenticate("github"), (req, res, next) => {
+router.use('/login', passport.authenticate('github'), (req, res, next) => {
   /*
         #swagger.tags = ['Authentication']
         #swagger.summary = 'Login'
@@ -13,7 +13,7 @@ router.use("/login", passport.authenticate("github"), (req, res, next) => {
   next();
 });
 
-router.get("/logout", function (req, res, next) {
+router.get('/logout', function (req, res, next) {
   /*
       #swagger.tags = ['Authentication']
       #swagger.summary = 'Logout'
@@ -32,7 +32,7 @@ router.get("/logout", function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    res.redirect('/');
   });
 });
 

@@ -8,7 +8,7 @@ const carDealerFranchiseSchema = new mongoose.Schema({
   Emails: { type: [String], required: true },
   Name: { type: String, required: true },
   PhoneNumber: { type: String, required: true },
-  State: { type: String, required: true }
+  State: { type: String, required: true },
 });
 
 module.exports = mongoose.model('CarDealerFranchise', carDealerFranchiseSchema);

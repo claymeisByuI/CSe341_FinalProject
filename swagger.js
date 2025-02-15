@@ -55,11 +55,11 @@ const doc = {
           Transmission: 'Automatic',
           Year: 2021,
           Type: 'Sedan',
-          colors_available: ['Red', 'Blue', 'Black']
-        }
-      }
-    }
-  }
+          colors_available: ['Red', 'Blue', 'Black'],
+        },
+      },
+    },
+  },
 };
 
 const outputFile = './swagger.json';
