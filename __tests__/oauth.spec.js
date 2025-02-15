@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { checkPassword, getPasswordHash } = require('../utils/oauth');
 const assert = require('assert');
 const bcrypt = require('bcrypt');

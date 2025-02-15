@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const {
   Types: { ObjectId },
 } = require('mongoose');
@@ -30,38 +31,38 @@ describe('Aftermarket Companies Controller Unit Tests', () => {
     });
   });
 
-//   describe('getAftermarketCompanyById', () => {
-//     test('should return aftermarket company details by id', async () => {
-//       const companyId = new ObjectId().toString();
-//       const company = {
-//         _id: companyId,
-//         name: 'Company A',
-//         createdAt: new Date('2025-02-15T19:50:08.892Z'),
-//       };
-//       mockingoose(AftermarketCompany).toReturn(company, 'findOne');
+  //   describe('getAftermarketCompanyById', () => {
+  //     test('should return aftermarket company details by id', async () => {
+  //       const companyId = new ObjectId().toString();
+  //       const company = {
+  //         _id: companyId,
+  //         name: 'Company A',
+  //         createdAt: new Date('2025-02-15T19:50:08.892Z'),
+  //       };
+  //       mockingoose(AftermarketCompany).toReturn(company, 'findOne');
 
-//       const req = { params: { companyId } };
-//       const res = new TestResponse();
+  //       const req = { params: { companyId } };
+  //       const res = new TestResponse();
 
-//       await aftermarketCompaniesController.getAftermarketCompanyById(req, res);
-//       expect(res.statusCode).toBe(200);
-//       expect(res.data).toMatchObject({
-//         _id: companyId,
-//         name: 'Company A',
-//         createdAt: new Date('2025-02-15T19:50:08.892Z'),
-//       });
-//     });
+  //       await aftermarketCompaniesController.getAftermarketCompanyById(req, res);
+  //       expect(res.statusCode).toBe(200);
+  //       expect(res.data).toMatchObject({
+  //         _id: companyId,
+  //         name: 'Company A',
+  //         createdAt: new Date('2025-02-15T19:50:08.892Z'),
+  //       });
+  //     });
 
-//     test('should return 404 if aftermarket company not found by id', async () => {
-//       const companyId = new ObjectId().toString();
-//       mockingoose(AftermarketCompany).toReturn(null, 'findOne');
+  //     test('should return 404 if aftermarket company not found by id', async () => {
+  //       const companyId = new ObjectId().toString();
+  //       mockingoose(AftermarketCompany).toReturn(null, 'findOne');
 
-//       const req = { params: { companyId } };
-//       const res = new TestResponse();
+  //       const req = { params: { companyId } };
+  //       const res = new TestResponse();
 
-//       await aftermarketCompaniesController.getAftermarketCompanyById(req, res);
-//       expect(res.statusCode).toBe(404);
-//       expect(res.data).toHaveProperty('message', 'Aftermarket company not found');
-//     });
-//   });
+  //       await aftermarketCompaniesController.getAftermarketCompanyById(req, res);
+  //       expect(res.statusCode).toBe(404);
+  //       expect(res.data).toHaveProperty('message', 'Aftermarket company not found');
+  //     });
+  //   });
 });
