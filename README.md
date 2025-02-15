@@ -17,8 +17,8 @@ Please refer to the [Proposal.md](https://github.com/claymeisByuI/CSe341_FinalPr
 |     | CarDealershipFranchise Controller                    | Victor                |
 | ✅  | Vehicle Controller                                   | Johann                |
 |     | Aftermarket Controller                               | Ivan                  |
-|     | OAuth and Data restrictions                          | Group                 |
-|     | Tests                                                | Group                 |
+| ✅  | OAuth and Data restrictions                          | Víctor / Clayton                |
+| ✅  | Tests                                                | Clayton                |
 |     | Video presentation of node project,                  |                       |
 |     | all routes functioning, mongoDB data being modified, |                       |
-|     | and API documentation.                               |                       |
+|     | API documentation.                               |                       |
