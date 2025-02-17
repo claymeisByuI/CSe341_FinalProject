@@ -46,7 +46,7 @@ exports.updateCarDealershipFranchise = async (req, res) => {
          schema: { $ref: "#/components/schemas/carDealerFranchise" },
          examples: {
            ExampleRequest: {
-             summary: "Sample Car Dealership Creation",
+             summary: "Sample Car Dealership Update",
              value: {
                "Name": "Test",
                "Brands": ["Test"],
@@ -92,7 +92,7 @@ exports.findCarDealershipFranchisesByBrand = async (req, res) => {
    #swagger.tags = ['CarDealershipFranchises']
   */
   try {
-    const companies = await carDealershipFranchise.find({ Brands: req.query.brand });
+    const companies = await carDealershipFranchise.find({ Brands: [req.query.brand] });
     res.status(200).json(companies);
   } catch (error) {
     res.status(400).json({ message: error.message });

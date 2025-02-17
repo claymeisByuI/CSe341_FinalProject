@@ -44,11 +44,11 @@
                 "ExampleRequest": {
                   "summary": "Sample Part Creation",
                   "value": {
-                    "Brand": "",
-                    "Name": "",
+                    "Brand": "Test",
+                    "Name": "Test",
                     "Quality": "OEM",
                     "Vehicles": [
-                      ""
+                      "Test"
                     ]
                   }
                 }
@@ -146,6 +146,19 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Part"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Part Update",
+                  "value": {
+                    "Brand": "Test",
+                    "Name": "Tested",
+                    "Quality": "OEM",
+                    "Vehicles": [
+                      "Test"
+                    ]
+                  }
+                }
               }
             }
           }
@@ -746,12 +759,12 @@
                   "value": {
                     "Brand": "Toyota",
                     "Description": "A reliable car",
-                    "Engine_type": "V6",
+                    "Engine_type": "inline-4",
                     "Fuel_type": "Gasoline",
-                    "Name": "Camry",
+                    "Name": "Corolla",
                     "Transmission": "Automatic",
                     "Year": 2021,
-                    "Type": "Sedan",
+                    "Type": "Hatchback",
                     "colors_available": [
                       "Red",
                       "Blue",
@@ -1020,12 +1033,12 @@
                 "ExampleRequest": {
                   "summary": "Sample Brand Creation",
                   "value": {
-                    "Name": "",
-                    "Country": "",
-                    "StartingDate": "",
-                    "Logo": "",
-                    "Headquarters": "",
-                    "Founders": ""
+                    "Name": "Test",
+                    "Country": "USA",
+                    "StartingDate": "0000",
+                    "Logo": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4 8/w38GIAXDIBKE0DHxglj2+j3+I+m0+gBwzYvN/fBwHKE0DHxglj2+gAAAAABJRU5ErkJggg==",
+                    "Headquarters": "Test",
+                    "Founders": "Test & Test"
                   }
                 }
               }
@@ -1125,6 +1138,19 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Brand"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Brand Update",
+                  "value": {
+                    "Name": "Test",
+                    "Country": "USA",
+                    "StartingDate": "0000",
+                    "Logo": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4 8/w38GIAXDIBKE0DHxglj2+j3+I+m0+gBwzYvN/fBwHKE0DHxglj2+gAAAAABJRU5ErkJggg==",
+                    "Headquarters": "Test",
+                    "Founders": "Test & Test"
+                  }
+                }
               }
             }
           }
@@ -1335,6 +1361,35 @@
           "401": {
             "description": "Unauthorized"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Brand"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Aftermarket Company Creation",
+                  "value": {
+                    "Name": "Test",
+                    "Address": "Test Avenue",
+                    "City": "Test",
+                    "State": "XX",
+                    "Country": "USA",
+                    "Brands": [
+                      "Test"
+                    ],
+                    "CertifiedMechanics": "1",
+                    "Vehicles": [
+                      "Test"
+                    ]
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "get": {
@@ -1380,6 +1435,35 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Brand"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Aftermarket Company Update",
+                  "value": {
+                    "Name": "Tested",
+                    "Address": "Test Avenue",
+                    "City": "Test",
+                    "State": "ZZ",
+                    "Country": "USA",
+                    "Brands": [
+                      "Test"
+                    ],
+                    "CertifiedMechanics": "2",
+                    "Vehicles": [
+                      "Test"
+                    ]
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1590,7 +1674,7 @@
               },
               "examples": {
                 "ExampleRequest": {
-                  "summary": "Sample Car Dealership Creation",
+                  "summary": "Sample Car Dealership Update",
                   "value": {
                     "Name": "Test",
                     "Brands": [
@@ -1635,6 +1719,36 @@
             "description": "Not Found"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "CarDealershipFranchises"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "franchiseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
       }
     },
     "/carDeleadership/findByBrand": {
@@ -1658,38 +1772,6 @@
           },
           "400": {
             "description": "Bad Request"
-          }
-        }
-      }
-    },
-    "/carDeleadership/{aftermarketId}": {
-      "delete": {
-        "tags": [
-          "CarDealershipFranchises"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "aftermarketId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Not Found"
           }
         }
       }

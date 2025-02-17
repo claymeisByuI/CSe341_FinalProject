@@ -2,7 +2,30 @@ const AftermarketCompany = require('../models/aftermarketCompaniesModel');
 
 exports.createAftermarketCompany = async (req, res) => {
   /*
-   #swagger.tags = ['AftermarketCompanies']
+  #swagger.tags = ['AftermarketCompanies']
+  #swagger.requestBody = {
+    required: true,
+    content: {
+      "application/json": {
+        schema: { $ref: "#/components/schemas/AftermarketCompany" },
+        examples: {
+          ExampleRequest: {
+            summary: "Sample Aftermarket Company Creation",
+            value: {
+              Name: "Test",
+              Address: "Test Avenue",
+              City: "Test",
+              State: "XX",
+              Country: "USA",
+              Brands: ["Test"],
+              CertifiedMechanics: "1",
+              Vehicles: ["Test"],
+            }
+          }
+        }
+      }
+    }
+  }
   */
   try {
     const company = new AftermarketCompany(req.body);
@@ -16,6 +39,29 @@ exports.createAftermarketCompany = async (req, res) => {
 exports.updateAftermarketCompany = async (req, res) => {
   /*
    #swagger.tags = ['AftermarketCompanies']
+     #swagger.requestBody = {
+    required: true,
+    content: {
+      "application/json": {
+        schema: { $ref: "#/components/schemas/AftermarketCompany" },
+        examples: {
+          ExampleRequest: {
+            summary: "Sample Aftermarket Company Update",
+            value: {
+              Name: "Tested",
+              Address: "Test Avenue",
+              City: "Test",
+              State: "ZZ",
+              Country: "USA",
+              Brands: ["Test"],
+              CertifiedMechanics: "2",
+              Vehicles: ["Test"],
+            }
+          }
+        }
+      }
+    }
+  }
   */
   try {
     const company = await AftermarketCompany.findByIdAndUpdate(req.params.aftermarketId, req.body, {

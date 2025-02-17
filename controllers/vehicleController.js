@@ -68,12 +68,12 @@ exports.updateVehicle = async (req, res) => {
                  value: {
                    Brand: 'Toyota',
                    Description: 'A reliable car',
-                   Engine_type: 'V6',
+                   Engine_type: 'inline-4',
                    Fuel_type: 'Gasoline',
-                   Name: 'Camry',
+                   Name: 'Corolla',
                    Transmission: 'Automatic',
                    Year: 2021,
-                   Type: 'Sedan',
+                   Type: 'Hatchback',
                    colors_available: ['Red', 'Blue', 'Black']
                  }
                }

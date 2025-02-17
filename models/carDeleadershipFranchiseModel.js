@@ -12,7 +12,4 @@ const carDealerFranchiseSchema = new mongoose.Schema({
   CreatedAt: { type: Date, default: Date.now },
 });
 
-// Delete the existing model from the Mongoose models cache
-delete mongoose.connection.models['CarDealerFranchise'];
-
 module.exports = mongoose.model('CarDealerFranchise', carDealerFranchiseSchema, 'CarDealerFranchise');

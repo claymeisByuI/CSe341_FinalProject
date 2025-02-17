@@ -9,7 +9,7 @@ router.get('/', carDealershipFranchiseController.getCarDealershipFranchises);
 router.get('/findByBrand', carDealershipFranchiseController.findCarDealershipFranchisesByBrand);
 router.get('/:franchiseId', carDealershipFranchiseController.getCarDealershipFranchiseById);
 router.delete(
-  '/:aftermarketId',
+  '/:franchiseId',
   validation.isAuthenticated,
   carDealershipFranchiseController.deleteCarDealershipFranchiseById,
 );

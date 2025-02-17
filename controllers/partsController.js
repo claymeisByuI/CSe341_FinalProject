@@ -3,26 +3,26 @@ const Part = require('../models/partsModel');
 // POST
 exports.createPart = async (req, res) => {
   /*
-     #swagger.tags = ['Parts']
-      #swagger.requestBody = {
-         required: true,
-         content: {
-           "application/json": {
-             schema: { $ref: "#/components/schemas/Part" },
-             examples: {
-               ExampleRequest: {
-                 summary: "Sample Part Creation",
-                 value: {
-                      "Brand": "",
-                      "Name": "",
-                      "Quality": "OEM",
-                      "Vehicles": [""],
-                 }
-               }
-             }
+  #swagger.tags = ['Parts']
+  #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: { $ref: "#/components/schemas/Part" },
+          examples: {
+            ExampleRequest: {
+              summary: "Sample Part Creation",
+              value: {
+                  "Brand": "Test",
+                  "Name": "Test",
+                  "Quality": "OEM",
+                  "Vehicles": ["Test"],
+              }
+            }
           }
-        }
-     }
+      }
+    }
+  }
   */
   try {
     const part = new Part(req.body);
@@ -36,39 +36,50 @@ exports.createPart = async (req, res) => {
 // PUT
 exports.updatePart = async (req, res) => {
   /*
-     #swagger.tags = ['Parts']
-    #swagger.requestBody = {
-         required: true,
-         content: {
-           "application/json": {
-             schema: { $ref: "#/components/schemas/Part" },
+  #swagger.tags = ['Parts']
+  #swagger.requestBody = {
+      required: true,
+      content: {
+        "application/json": {
+          schema: { $ref: "#/components/schemas/Part" },
+          examples: {
+            ExampleRequest: {
+              summary: "Sample Part Update",
+              value: {
+                  "Brand": "Test",
+                  "Name": "Tested",
+                  "Quality": "OEM",
+                  "Vehicles": ["Test"],
+              }
+            }
           }
-        }
-     }
-     #swagger.responses[200] = {
-       description: 'Part updated successfully',
-       content: {
-         'application/json': {
-           schema: { $ref: '#/components/schemas/Part' }
-         }
-       }
-     }
-     #swagger.responses[400] = {
-       description: 'Bad Request',
-       content: {
-         'application/json': {
-           schema: { $ref: '#/components/schemas/Error' }
-         }
-       }
-     }
-     #swagger.responses[404] = {
-       description: 'Part not found',
-       content: {
-         'application/json': {
-           schema: { $ref: '#/components/schemas/Error' }
-         }
-       }
-     }
+      }
+    }
+  }
+  #swagger.responses[200] = {
+    description: 'Part updated successfully',
+    content: {
+      'application/json': {
+        schema: { $ref: '#/components/schemas/Part' }
+      }
+    }
+  }
+  #swagger.responses[400] = {
+    description: 'Bad Request',
+    content: {
+      'application/json': {
+        schema: { $ref: '#/components/schemas/Error' }
+      }
+    }
+  }
+  #swagger.responses[404] = {
+    description: 'Part not found',
+    content: {
+      'application/json': {
+        schema: { $ref: '#/components/schemas/Error' }
+      }
+    }
+  }
   */
   try {
     const part = await Part.findByIdAndUpdate(req.params.partsId, req.body, { new: true });

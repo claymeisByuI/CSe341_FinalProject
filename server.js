@@ -1,10 +1,10 @@
-const express = require('express'); // Import express
-const app = express(); // Initialize express
+const express = require('express');
+const app = express();
 const User = require('./models/userModel');
 
 const bodyParser = require('body-parser');
 
-const swaggerSetup = require('./swagger'); // Import swagger setup promise
+const swaggerSetup = require('./swagger');
 
 const passport = require('passport');
 const session = require('express-session');
@@ -12,8 +12,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-const port = process.env.PORT || 3000; // Port number
-//app.use('/', routes)
+const port = process.env.PORT || 3000;
 
 // DATA
 const models = require('./models');
@@ -21,7 +20,7 @@ const utils = require('./utils');
 
 async function startServer() {
   try {
-    await swaggerSetup; // Wait for swagger setup to complete
+    await swaggerSetup;
     models.db.mongoose
       .connect(utils.url, {})
       .then(() => {
@@ -79,8 +78,8 @@ async function startServer() {
       .get('/', (req, res) => {
         res.send(
           req.session.user !== undefined
-            ? `Logged in as user ${req.session.user.displayName || req.session.user.username}`
-            : 'Logged Out',
+            ? `Connected as user: ${req.session.user.displayName || req.session.user.username}`
+            : 'Not connected',
         );
       })
       .get(

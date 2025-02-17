@@ -4,15 +4,27 @@ const User = require('../models/userModel');
 exports.createUser = async (req, res) => {
   /*
    #swagger.tags = ['Users']
-        #swagger.requestBody = {
-        description: 'Create A User',
-         required: true,
-         content: {
-           "application/json": {
-             schema: { $ref: "#/components/schemas/User" },
-          }
-        }
+   #swagger.requestBody = {
+     required: true,
+     content: {
+       "application/json": {
+         schema: { $ref: "#/components/schemas/User" },
+         examples: {
+           ExampleRequest: {
+             summary: "Sample Users Creation",
+             value: {
+                Email: "test@mail.com",
+                FirstName: "Test",
+                LastName: "Test",
+                UserName: "TestUser",
+                AccountType: "Admin",
+                PhoneNumber: "000-0000",
+             }
+           }
+         }
+       }
      }
+   }
   */
   try {
     const user = new User(req.body);
@@ -26,19 +38,28 @@ exports.createUser = async (req, res) => {
 // Create multiple users from an array
 exports.createUsersWithArray = async (req, res) => {
   /*
-     #swagger.tags = ['Users']
-      #swagger.requestBody = {
-        description: 'Create A from array',
-         required: true,
-         content: {
-           "application/json": {
-             schema: {
-            type: "array",
-            items: { $ref: "#/components/schemas/User" }
-            }
-          }
+   #swagger.tags = ['Users']
+   #swagger.requestBody = {
+     required: true,
+     content: {
+       "application/json": {
+         schema: { $ref: "#/components/schemas/User" },
+         examples: {
+           ExampleRequest: {
+             summary: "Sample Users Creation",
+             value: {
+                Email: "test@mail.com",
+                FirstName: "Testing",
+                LastName: "Tested",
+                UserName: "TestUser",
+                AccountType: "Admin",
+                PhoneNumber: "000-0001",
+             }
+           }
+         }
        }
      }
+   }
   */
   try {
     const users = await User.insertMany(req.body);
