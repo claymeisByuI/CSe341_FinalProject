@@ -38,28 +38,29 @@ exports.createUser = async (req, res) => {
 // Create multiple users from an array
 exports.createUsersWithArray = async (req, res) => {
   /*
-   #swagger.tags = ['Users']
-   #swagger.requestBody = {
-     required: true,
-     content: {
-       "application/json": {
-         schema: { $ref: "#/components/schemas/Users" },
-         examples: {
-           ExampleRequest: {
-             summary: "Sample Users Creation",
-             value: {
-                Email: "test@mail.com",
-                FirstName: "Testing",
-                LastName: "Tested",
-                UserName: "TestUser",
-                AccountType: "Admin",
-                PhoneNumber: "000-0001",
-             }
-           }
-         }
+     #swagger.tags = ['Users']
+           description: 'Create by array',
+      content: {
+        "application/json": {
+          schema: {
+            type: "array",
+            items: { $ref: "#/components/schemas/Users" }
+          }
+
+        }
+      }
+        #swagger.requestBody = {
+        description: 'Create users from an array',
+         required: true,
+         content: {
+           "application/json": {
+             schema: {
+            type: "array",
+            items: { $ref: "#/components/schemas/Users" }
+            }
+          }
        }
      }
-   }
   */
   try {
     const users = await User.insertMany(req.body);
@@ -84,7 +85,7 @@ exports.createUsersWithList = async (req, res) => {
         }
       }
         #swagger.requestBody = {
-        description: 'Create A from array',
+        description: 'Create users from a list',
          required: true,
          content: {
            "application/json": {
@@ -152,13 +153,28 @@ exports.getUserByUsername = async (req, res) => {
 // Update user by username
 exports.updateUserByUsername = async (req, res) => {
   /*
-     #swagger.tags = ['Users']
+   #swagger.tags = ['Users']
+   #swagger.requestBody = {
+     required: true,
      content: {
-        "application/json": {
-          schema: { $ref: "#/components/schemas/Users" }
-        }
-      }
-
+       "application/json": {
+         schema: { $ref: "#/components/schemas/Users" },
+         examples: {
+           ExampleRequest: {
+             summary: "Sample Users Creation",
+             value: {
+                Email: "test@mail.com",
+                FirstName: "Testing",
+                LastName: "Tested",
+                UserName: "TestUser",
+                AccountType: "Admin",
+                PhoneNumber: "000-0001",
+             }
+           }
+         }
+       }
+     }
+   }
   */
   try {
     const user = await User.findOneAndUpdate({ UserName: req.params.username }, req.body, { new: true });
