@@ -41,7 +41,7 @@ const doc = {
       Vehicle: vehicleSchema.properties,
       Error: errorSchema.properties,
       Brand: brandSchema.properties,
-      CarDealerFranchise: carDealerFranchiseSchema.properties,
+      CarDealershipFranchise: carDealerFranchiseSchema.properties,
       AftermarketCompanies: aftermarketCompaniesSchema.properties,
     },
     examples: {
