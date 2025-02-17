@@ -4,6 +4,7 @@ router.use('/user', require('./userRoute'));
 router.use('/vehicle', require('./vehicleRoute'));
 router.use('/brand', require('./brandRoute'));
 router.use('/aftermarketComp', require('./aftermarketCompaniesRoute'));
+router.use('/carDeleadership', require('./carDeleadershipFranchiseRoute'));
 router.use('/', require('./authenticate.routes'));
 
 module.exports = router;

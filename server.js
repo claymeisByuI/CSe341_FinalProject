@@ -68,7 +68,7 @@ async function startServer() {
       .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
       .use(
         session({
-          secret: 'ThisisaSecretandshouldBeIntheENVFile',
+          secret: process.env.SESSION_SECRET,
           resave: false,
           saveUninitialized: true,
         }),
