@@ -3,6 +3,29 @@ const carDealershipFranchise = require('../models/carDeleadershipFranchiseModel'
 exports.createCarDealershipFranchise = async (req, res) => {
   /*
    #swagger.tags = ['CarDealershipFranchises']
+   #swagger.requestBody = {
+     required: true,
+     content: {
+       "application/json": {
+         schema: { $ref: "#/components/schemas/carDealerFranchise" },
+         examples: {
+           ExampleRequest: {
+             summary: "Sample Car Dealership Creation",
+             value: {
+               "Name": "Test",
+               "Brands": ["Test"],
+               "Address": "100 Test Way",
+               "City": "Test",
+               "State": "XX",
+               "Country": "USA",
+               "PhoneNumber": "000-0000",
+               "Email": "info@test.com"
+             }
+           }
+         }
+       }
+     }
+   }
   */
   try {
     const company = new carDealershipFranchise(req.body);
@@ -29,8 +52,8 @@ exports.updateCarDealershipFranchise = async (req, res) => {
                "Brands": ["Test"],
                "Address": "100 Test Way",
                "City": "Test",
-               "State": "XX",
-               "Country": "USA",
+               "State": "ZZ",
+               "Country": "VEN",
                "PhoneNumber": "000-0000",
                "Email": "info@test.com"
              }

@@ -1507,6 +1507,33 @@
           "401": {
             "description": "Unauthorized"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/carDealerFranchise"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Car Dealership Creation",
+                  "value": {
+                    "Name": "Test",
+                    "Brands": [
+                      "Test"
+                    ],
+                    "Address": "100 Test Way",
+                    "City": "Test",
+                    "State": "XX",
+                    "Country": "USA",
+                    "PhoneNumber": "000-0000",
+                    "Email": "info@test.com"
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "get": {
@@ -1571,8 +1598,8 @@
                     ],
                     "Address": "100 Test Way",
                     "City": "Test",
-                    "State": "XX",
-                    "Country": "USA",
+                    "State": "ZZ",
+                    "Country": "VEN",
                     "PhoneNumber": "000-0000",
                     "Email": "info@test.com"
                   }
