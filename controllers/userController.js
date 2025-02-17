@@ -8,7 +8,7 @@ exports.createUser = async (req, res) => {
      required: true,
      content: {
        "application/json": {
-         schema: { $ref: "#/components/schemas/User" },
+         schema: { $ref: "#/components/schemas/Users" },
          examples: {
            ExampleRequest: {
              summary: "Sample Users Creation",
@@ -43,7 +43,7 @@ exports.createUsersWithArray = async (req, res) => {
      required: true,
      content: {
        "application/json": {
-         schema: { $ref: "#/components/schemas/User" },
+         schema: { $ref: "#/components/schemas/Users" },
          examples: {
            ExampleRequest: {
              summary: "Sample Users Creation",
@@ -78,7 +78,7 @@ exports.createUsersWithList = async (req, res) => {
         "application/json": {
           schema: {
             type: "array",
-            items: { $ref: "#/components/schemas/User" }
+            items: { $ref: "#/components/schemas/Users" }
           }
 
         }
@@ -90,7 +90,7 @@ exports.createUsersWithList = async (req, res) => {
            "application/json": {
              schema: {
             type: "array",
-            items: { $ref: "#/components/schemas/User" }
+            items: { $ref: "#/components/schemas/Users" }
             }
           }
        }
@@ -114,7 +114,7 @@ exports.findUsersByType = async (req, res) => {
         "application/json": {
           schema: {
             type: "array",
-            items: { $ref: "#/components/schemas/User" }
+            items: { $ref: "#/components/schemas/Users" }
           }
 
         }
@@ -135,7 +135,7 @@ exports.getUserByUsername = async (req, res) => {
      #swagger.tags = ['Users']
      content: {
         "application/json": {
-          schema: { $ref: "#/components/schemas/User" }
+          schema: { $ref: "#/components/schemas/Users" }
         }
       }
 
@@ -155,7 +155,7 @@ exports.updateUserByUsername = async (req, res) => {
      #swagger.tags = ['Users']
      content: {
         "application/json": {
-          schema: { $ref: "#/components/schemas/User" }
+          schema: { $ref: "#/components/schemas/Users" }
         }
       }
 
