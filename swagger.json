@@ -401,12 +401,24 @@
           }
         },
         "requestBody": {
-          "description": "Create A User",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Users Creation",
+                  "value": {
+                    "Email": "test@mail.com",
+                    "FirstName": "Test",
+                    "LastName": "Test",
+                    "UserName": "TestUser",
+                    "AccountType": "Admin",
+                    "PhoneNumber": "000-0000"
+                  }
+                }
               }
             }
           }
@@ -431,14 +443,23 @@
           }
         },
         "requestBody": {
-          "description": "Create A from array",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Users Creation",
+                  "value": {
+                    "Email": "test@mail.com",
+                    "FirstName": "Testing",
+                    "LastName": "Tested",
+                    "UserName": "TestUser",
+                    "AccountType": "Admin",
+                    "PhoneNumber": "000-0001"
+                  }
                 }
               }
             }
@@ -1367,7 +1388,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Brand"
+                "$ref": "#/components/schemas/AftermarketCompany"
               },
               "examples": {
                 "ExampleRequest": {
@@ -1442,7 +1463,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Brand"
+                "$ref": "#/components/schemas/AftermarketCompany"
               },
               "examples": {
                 "ExampleRequest": {
@@ -2218,10 +2239,10 @@
           }
         }
       },
-      "CarDealerFranchise": {
+      "CarDealershipFranchise": {
         "type": "object",
         "properties": {
-          "Address": {
+          "Name": {
             "type": "object",
             "properties": {
               "type": {
@@ -2230,7 +2251,29 @@
               }
             }
           },
-          "Brand": {
+          "Brands": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          },
+          "Address": {
             "type": "object",
             "properties": {
               "type": {
@@ -2248,7 +2291,7 @@
               }
             }
           },
-          "Country": {
+          "State": {
             "type": "object",
             "properties": {
               "type": {
@@ -2257,25 +2300,7 @@
               }
             }
           },
-          "Emails": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "array"
-              },
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "string"
-                  }
-                }
-              }
-            }
-          },
-          "Name": {
+          "Country": {
             "type": "object",
             "properties": {
               "type": {
@@ -2293,12 +2318,25 @@
               }
             }
           },
-          "State": {
+          "Email": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
                 "example": "string"
+              }
+            }
+          },
+          "CreatedAt": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              },
+              "format": {
+                "type": "string",
+                "example": "date-time"
               }
             }
           },

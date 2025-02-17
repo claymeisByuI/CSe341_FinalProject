@@ -6,7 +6,7 @@ const userModel = require('./models/userModel');
 const vehicleModel = require('./models/vehicleModel');
 const errorModel = require('./models/errorModel');
 const brandModel = require('./models/brandModel');
-const carDealerFranchiseModel = require('./models/carDealerFranchiseModel');
+const carDealershipFranchiseModel = require('./models/carDeleadershipFranchiseModel'); // Corrected file name
 const aftermarketCompaniesModel = require('./models/aftermarketCompaniesModel');
 const mongoose = require('mongoose');
 
@@ -15,7 +15,7 @@ const userSchema = mongooseToSwagger(userModel);
 const vehicleSchema = mongooseToSwagger(vehicleModel);
 const errorSchema = mongooseToSwagger(errorModel);
 const brandSchema = mongooseToSwagger(brandModel);
-const carDealerFranchiseSchema = mongooseToSwagger(carDealerFranchiseModel);
+const carDealerFranchiseSchema = mongooseToSwagger(carDealershipFranchiseModel); // Corrected variable name
 const aftermarketCompaniesSchema = mongooseToSwagger(aftermarketCompaniesModel);
 
 const doc = {
