@@ -1639,9 +1639,7 @@
                   "summary": "Sample Car Dealership Creation",
                   "value": {
                     "Name": "Test",
-                    "Brands": [
-                      "Test"
-                    ],
+                    "Brand": "Test",
                     "Address": "100 Test Way",
                     "City": "Test",
                     "State": "XX",
@@ -1712,9 +1710,7 @@
                   "summary": "Sample Car Dealership Update",
                   "value": {
                     "Name": "Test",
-                    "Brands": [
-                      "Test"
-                    ],
+                    "Brand": "Test",
                     "Address": "100 Test Way",
                     "City": "Test",
                     "State": "ZZ",
