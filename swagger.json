@@ -405,7 +405,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/Users"
               },
               "examples": {
                 "ExampleRequest": {
@@ -443,23 +443,14 @@
           }
         },
         "requestBody": {
+          "description": "Create users from an array",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
-              },
-              "examples": {
-                "ExampleRequest": {
-                  "summary": "Sample Users Creation",
-                  "value": {
-                    "Email": "test@mail.com",
-                    "FirstName": "Testing",
-                    "LastName": "Tested",
-                    "UserName": "TestUser",
-                    "AccountType": "Admin",
-                    "PhoneNumber": "000-0001"
-                  }
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Users"
                 }
               }
             }
@@ -485,14 +476,14 @@
           }
         },
         "requestBody": {
-          "description": "Create A from array",
+          "description": "Create users from a list",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/Users"
                 }
               }
             }
@@ -523,7 +514,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/Users"
                   }
                 }
               }
@@ -590,6 +581,29 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Users"
+              },
+              "examples": {
+                "ExampleRequest": {
+                  "summary": "Sample Users Creation",
+                  "value": {
+                    "Email": "test@mail.com",
+                    "FirstName": "Testing",
+                    "LastName": "Tested",
+                    "UserName": "TestUser",
+                    "AccountType": "Admin",
+                    "PhoneNumber": "000-0001"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -2122,6 +2136,15 @@
       "Brand": {
         "type": "object",
         "properties": {
+          "Name": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
           "Country": {
             "type": "object",
             "properties": {
@@ -2131,16 +2154,7 @@
               }
             }
           },
-          "Founders": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              }
-            }
-          },
-          "Headquarters": {
+          "StartingDate": {
             "type": "object",
             "properties": {
               "type": {
@@ -2158,7 +2172,7 @@
               }
             }
           },
-          "Name": {
+          "Headquarters": {
             "type": "object",
             "properties": {
               "type": {
@@ -2167,7 +2181,7 @@
               }
             }
           },
-          "StartingDate": {
+          "Founders": {
             "type": "object",
             "properties": {
               "type": {
@@ -2199,25 +2213,12 @@
               }
             }
           },
-          "Brands": {
+          "Brand": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
-                "example": "array"
-              },
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "example": "string"
-                  },
-                  "required": {
-                    "type": "boolean",
-                    "example": true
-                  }
-                }
+                "example": "string"
               }
             }
           },
@@ -2266,12 +2267,21 @@
               }
             }
           },
-          "Email": {
+          "Emails": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
-                "example": "string"
+                "example": "array"
+              },
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "string"
+                  }
+                }
               }
             }
           },

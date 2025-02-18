@@ -13,7 +13,7 @@ exports.createCarDealershipFranchise = async (req, res) => {
              summary: "Sample Car Dealership Creation",
              value: {
                "Name": "Test",
-               "Brands": ["Test"],
+               "Brand": "Test",
                "Address": "100 Test Way",
                "City": "Test",
                "State": "XX",
@@ -49,7 +49,7 @@ exports.updateCarDealershipFranchise = async (req, res) => {
              summary: "Sample Car Dealership Update",
              value: {
                "Name": "Test",
-               "Brands": ["Test"],
+               "Brand": "Test",
                "Address": "100 Test Way",
                "City": "Test",
                "State": "ZZ",
