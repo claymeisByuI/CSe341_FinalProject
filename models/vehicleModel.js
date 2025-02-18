@@ -20,7 +20,6 @@ const vehicleSchema = new mongoose.Schema({
   Year: { type: Number, required: true },
   Type: { type: String, required: true },
   colors_available: [{ type: String, required: true }],
-  CreatedAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model('Vehicles', vehicleSchema, 'Vehicles');

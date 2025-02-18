@@ -37,7 +37,6 @@ describe('Parts Controller Unit Tests', () => {
   //     const part = {
   //       _id: partId,
   //       name: 'Brake Pad',
-  //       createdAt: new Date('2025-02-15T19:50:08.892Z'),
   //     };
   //     mockingoose(Part).toReturn(part, 'findOne');
 
@@ -49,7 +48,6 @@ describe('Parts Controller Unit Tests', () => {
   //     expect(res.data).toMatchObject({
   //       _id: partId,
   //       name: 'Brake Pad',
-  //       createdAt: new Date('2025-02-15T19:50:08.892Z'),
   //     });
   //   });
 

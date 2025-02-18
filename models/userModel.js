@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
   UserName: { type: String, required: true, unique: true },
   AccountType: { type: String, enum: ['admin', 'customer'], required: true },
   PhoneNumber: { type: String, required: true },
-  CreatedAt: { type: Date, default: Date.now },
 });
 // // Pre-save middleware to hash the password and perform validation
 // userSchema.pre('save', async function (next) {

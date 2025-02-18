@@ -37,7 +37,6 @@ describe('Brands Controller Unit Tests', () => {
   //       const brand = {
   //         _id: brandId,
   //         name: 'Toyota',
-  //         createdAt: new Date('2025-02-15T19:50:08.892Z'),
   //       };
   //       mockingoose(Brand).toReturn(brand, 'findOne');
 
@@ -49,7 +48,6 @@ describe('Brands Controller Unit Tests', () => {
   //       expect(res.data).toMatchObject({
   //         _id: brandId,
   //         name: 'Toyota',
-  //         createdAt: new Date('2025-02-15T19:50:08.892Z'),
   //       });
   //     });
 

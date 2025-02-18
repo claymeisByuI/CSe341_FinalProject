@@ -37,7 +37,6 @@ describe('Aftermarket Companies Controller Unit Tests', () => {
   //       const company = {
   //         _id: companyId,
   //         name: 'Company A',
-  //         createdAt: new Date('2025-02-15T19:50:08.892Z'),
   //       };
   //       mockingoose(AftermarketCompany).toReturn(company, 'findOne');
 
@@ -49,7 +48,6 @@ describe('Aftermarket Companies Controller Unit Tests', () => {
   //       expect(res.data).toMatchObject({
   //         _id: companyId,
   //         name: 'Company A',
-  //         createdAt: new Date('2025-02-15T19:50:08.892Z'),
   //       });
   //     });
 

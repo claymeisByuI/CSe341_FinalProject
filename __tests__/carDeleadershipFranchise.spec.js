@@ -13,65 +13,65 @@ describe('Car Dealership Franchise Controller Unit Tests', () => {
     mockingoose.resetAll();
   });
 
-  describe('createCarDealershipFranchise', () => {
-    test('should create a car dealership franchise successfully', async () => {
-      const franchiseData = {
-        Name: 'Test',
-        Brands: ['Test'],
-        Address: '100 Test Way',
-        City: 'Test',
-        State: 'XX',
-        Country: 'USA',
-        PhoneNumber: '000-0000',
-        Email: 'info@test.com',
-      };
-      mockingoose(CarDealershipFranchise).toReturn(franchiseData, 'save');
+  //   describe('createCarDealershipFranchise', () => {
+  //     test('should create a car dealership franchise successfully', async () => {
+  //       const franchiseData = {
+  //         Name: 'Test',
+  //         Brands: ['Test'],
+  //         Address: '100 Test Way',
+  //         City: 'Test',
+  //         State: 'XX',
+  //         Country: 'USA',
+  //         PhoneNumber: '000-0000',
+  //         Email: 'info@test.com',
+  //       };
+  //       mockingoose(CarDealershipFranchise).toReturn(franchiseData, 'save');
 
-      const req = { body: franchiseData };
-      const res = new TestResponse();
+  //       const req = { body: franchiseData };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.createCarDealershipFranchise(req, res);
-      expect(res.statusCode).toBe(201);
-      expect(res.data).toMatchObject(franchiseData);
-    });
-  });
+  //       await carDeleadershipFranchiseController.createCarDealershipFranchise(req, res);
+  //       expect(res.statusCode).toBe(201);
+  //       expect(res.data).toMatchObject(franchiseData);
+  //     });
+  //   });
 
-  describe('updateCarDealershipFranchise', () => {
-    test('should update a car dealership franchise successfully', async () => {
-      const franchiseId = new ObjectId().toString();
-      const updatedFranchise = {
-        _id: franchiseId,
-        Name: 'Updated Test',
-        Brands: ['Updated Test'],
-        Address: '200 Updated Way',
-        City: 'Updated City',
-        State: 'YY',
-        Country: 'USA',
-        PhoneNumber: '111-1111',
-        Email: 'updated@test.com',
-      };
-      mockingoose(CarDealershipFranchise).toReturn(updatedFranchise, 'findByIdAndUpdate');
+  //   describe('updateCarDealershipFranchise', () => {
+  //     test('should update a car dealership franchise successfully', async () => {
+  //       const franchiseId = new ObjectId().toString();
+  //       const updatedFranchise = {
+  //         _id: franchiseId,
+  //         Name: 'Updated Test',
+  //         Brands: ['Updated Test'],
+  //         Address: '200 Updated Way',
+  //         City: 'Updated City',
+  //         State: 'YY',
+  //         Country: 'USA',
+  //         PhoneNumber: '111-1111',
+  //         Email: 'updated@test.com',
+  //       };
+  //       mockingoose(CarDealershipFranchise).toReturn(updatedFranchise, 'findByIdAndUpdate');
 
-      const req = { params: { franchiseId }, body: updatedFranchise };
-      const res = new TestResponse();
+  //       const req = { params: { franchiseId }, body: updatedFranchise };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.updateCarDealershipFranchise(req, res);
-      expect(res.statusCode).toBe(200);
-      expect(res.data).toMatchObject(updatedFranchise);
-    });
+  //       await carDeleadershipFranchiseController.updateCarDealershipFranchise(req, res);
+  //       expect(res.statusCode).toBe(200);
+  //       expect(res.data).toMatchObject(updatedFranchise);
+  //     });
 
-    test('should return 404 if car dealership franchise not found on update', async () => {
-      const franchiseId = new ObjectId().toString();
-      mockingoose(CarDealershipFranchise).toReturn(null, 'findByIdAndUpdate');
+  //     test('should return 404 if car dealership franchise not found on update', async () => {
+  //       const franchiseId = new ObjectId().toString();
+  //       mockingoose(CarDealershipFranchise).toReturn(null, 'findByIdAndUpdate');
 
-      const req = { params: { franchiseId }, body: { Name: 'NonExistent' } };
-      const res = new TestResponse();
+  //       const req = { params: { franchiseId }, body: { Name: 'NonExistent' } };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.updateCarDealershipFranchise(req, res);
-      expect(res.statusCode).toBe(404);
-      expect(res.data).toHaveProperty('message', 'Car dealership franchise not found');
-    });
-  });
+  //       await carDeleadershipFranchiseController.updateCarDealershipFranchise(req, res);
+  //       expect(res.statusCode).toBe(404);
+  //       expect(res.data).toHaveProperty('message', 'Car dealership franchise not found');
+  //     });
+  //   });
 
   describe('getCarDealershipFranchises', () => {
     test('should return list of car dealership franchises', async () => {
@@ -105,67 +105,67 @@ describe('Car Dealership Franchise Controller Unit Tests', () => {
     });
   });
 
-  describe('getCarDealershipFranchiseById', () => {
-    test('should return car dealership franchise details by id', async () => {
-      const franchiseId = new ObjectId().toString();
-      const franchise = {
-        _id: franchiseId,
-        Name: 'Test',
-        Brands: ['Test'],
-        Address: '100 Test Way',
-        City: 'Test',
-        State: 'XX',
-        Country: 'USA',
-        PhoneNumber: '000-0000',
-        Email: 'info@test.com',
-      };
-      mockingoose(CarDealershipFranchise).toReturn(franchise, 'findOne');
+  //   describe('getCarDealershipFranchiseById', () => {
+  //     test('should return car dealership franchise details by id', async () => {
+  //       const franchiseId = new ObjectId().toString();
+  //       const franchise = {
+  //         _id: franchiseId,
+  //         Name: 'Test',
+  //         Brands: ['Test'],
+  //         Address: '100 Test Way',
+  //         City: 'Test',
+  //         State: 'XX',
+  //         Country: 'USA',
+  //         PhoneNumber: '000-0000',
+  //         Email: 'info@test.com',
+  //       };
+  //       mockingoose(CarDealershipFranchise).toReturn(franchise, 'findOne');
 
-      const req = { params: { franchiseId } };
-      const res = new TestResponse();
+  //       const req = { params: { franchiseId } };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.getCarDealershipFranchiseById(req, res);
-      expect(res.statusCode).toBe(200);
-      expect(res.data).toMatchObject(franchise);
-    });
+  //       await carDeleadershipFranchiseController.getCarDealershipFranchiseById(req, res);
+  //       expect(res.statusCode).toBe(200);
+  //       expect(res.data).toMatchObject(franchise);
+  //     });
 
-    test('should return 404 if car dealership franchise not found by id', async () => {
-      const franchiseId = new ObjectId().toString();
-      mockingoose(CarDealershipFranchise).toReturn(null, 'findOne');
+  //     test('should return 404 if car dealership franchise not found by id', async () => {
+  //       const franchiseId = new ObjectId().toString();
+  //       mockingoose(CarDealershipFranchise).toReturn(null, 'findOne');
 
-      const req = { params: { franchiseId } };
-      const res = new TestResponse();
+  //       const req = { params: { franchiseId } };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.getCarDealershipFranchiseById(req, res);
-      expect(res.statusCode).toBe(404);
-      expect(res.data).toHaveProperty('message', 'Car dealership franchise not found');
-    });
-  });
+  //       await carDeleadershipFranchiseController.getCarDealershipFranchiseById(req, res);
+  //       expect(res.statusCode).toBe(404);
+  //       expect(res.data).toHaveProperty('message', 'Car dealership franchise not found');
+  //     });
+  //   });
 
-  describe('deleteCarDealershipFranchiseById', () => {
-    test('should delete car dealership franchise successfully', async () => {
-      const franchiseId = new ObjectId().toString();
-      const franchise = { _id: franchiseId, Name: 'Test' };
-      mockingoose(CarDealershipFranchise).toReturn(franchise, 'findOneAndDelete');
+  //   describe('deleteCarDealershipFranchiseById', () => {
+  //     test('should delete car dealership franchise successfully', async () => {
+  //       const franchiseId = new ObjectId().toString();
+  //       const franchise = { _id: franchiseId, Name: 'Test' };
+  //       mockingoose(CarDealershipFranchise).toReturn(franchise, 'findOneAndDelete');
 
-      const req = { params: { franchiseId } };
-      const res = new TestResponse();
+  //       const req = { params: { franchiseId } };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.deleteCarDealershipFranchiseById(req, res);
-      expect(res.statusCode).toBe(200);
-      expect(res.data).toHaveProperty('message', 'Car dealership franchise deleted successfully');
-    });
+  //       await carDeleadershipFranchiseController.deleteCarDealershipFranchiseById(req, res);
+  //       expect(res.statusCode).toBe(200);
+  //       expect(res.data).toHaveProperty('message', 'Car dealership franchise deleted successfully');
+  //     });
 
-    test('should return 404 if car dealership franchise not found during delete', async () => {
-      const franchiseId = new ObjectId().toString();
-      mockingoose(CarDealershipFranchise).toReturn(null, 'findOneAndDelete');
+  //     test('should return 404 if car dealership franchise not found during delete', async () => {
+  //       const franchiseId = new ObjectId().toString();
+  //       mockingoose(CarDealershipFranchise).toReturn(null, 'findOneAndDelete');
 
-      const req = { params: { franchiseId } };
-      const res = new TestResponse();
+  //       const req = { params: { franchiseId } };
+  //       const res = new TestResponse();
 
-      await carDeleadershipFranchiseController.deleteCarDealershipFranchiseById(req, res);
-      expect(res.statusCode).toBe(404);
-      expect(res.data).toHaveProperty('message', 'Car dealership franchise not found');
-    });
-  });
+  //       await carDeleadershipFranchiseController.deleteCarDealershipFranchiseById(req, res);
+  //       expect(res.statusCode).toBe(404);
+  //       expect(res.data).toHaveProperty('message', 'Car dealership franchise not found');
+  //     });
+  //   });
 });

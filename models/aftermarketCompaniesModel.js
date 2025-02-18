@@ -9,7 +9,6 @@ const aftermarketCompanySchema = new mongoose.Schema({
   Brands: [{ type: String, required: true }],
   CertifiedMechanics: { type: Number, required: true },
   Vehicles: [{ type: String, required: true }],
-  CreatedAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model('AftermarketCompany', aftermarketCompanySchema, 'AftermarketCompanies');

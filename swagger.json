@@ -1886,19 +1886,6 @@
               }
             }
           },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
-              }
-            }
-          },
           "_id": {
             "type": "object",
             "properties": {
@@ -1974,19 +1961,6 @@
               "type": {
                 "type": "string",
                 "example": "string"
-              }
-            }
-          },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
               }
             }
           },
@@ -2102,19 +2076,6 @@
               }
             }
           },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
-              }
-            }
-          },
           "_id": {
             "type": "object",
             "properties": {
@@ -2215,19 +2176,6 @@
               }
             }
           },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
-              }
-            }
-          },
           "_id": {
             "type": "object",
             "properties": {
@@ -2324,19 +2272,6 @@
               "type": {
                 "type": "string",
                 "example": "string"
-              }
-            }
-          },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
               }
             }
           },
@@ -2449,19 +2384,6 @@
                     "example": true
                   }
                 }
-              }
-            }
-          },
-          "CreatedAt": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "string"
-              },
-              "format": {
-                "type": "string",
-                "example": "date-time"
               }
             }
           },

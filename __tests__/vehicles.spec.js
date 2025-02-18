@@ -139,7 +139,6 @@ describe('Vehicle Controller Unit Tests', () => {
   //     const vehicleId = new ObjectId().toString();
   //     const vehicle = {
   //       _id: vehicleId,
-  //       CreatedAt: new Date('2025-02-15T19:50:08.892Z'),
   //       Brand: 'Toyota',
   //       colors_available: [],
   //     };
