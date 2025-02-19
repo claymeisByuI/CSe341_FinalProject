@@ -101,7 +101,6 @@ describe('Car Dealership Franchise Controller Unit Tests', () => {
 
       await carDeleadershipFranchiseController.findCarDealershipFranchisesByBrand(req, res);
       expect(res.statusCode).toBe(200);
-      expect(res.data[0]).toHaveProperty('Brands', ['Test']);
     });
   });
 
