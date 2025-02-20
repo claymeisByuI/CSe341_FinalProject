@@ -27,10 +27,18 @@ async function getPasswordHash(enteredPassword) {
      throw err;
   }
 }
+function isAuthenticated(req, res, next) {
+  if (req.session.user === undefined) {
+    res.status(401).send({ message: 'Invalid access.' });
+  } else {
+    next();
+  }
+}
 
 // Replace the mongoose model export with exporting the functions for testing
-module.exports = { checkPassword, getPasswordHash };
- 
+module.exports = { checkPassword, getPasswordHash, isAuthenticated };
+
+
 // passwords that we need to hash
 // I@mABas1cCl!3nt
 // I@mAnM3ch4n1c

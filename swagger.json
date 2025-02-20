@@ -1178,9 +1178,9 @@
                 "ExampleRequest": {
                   "summary": "Sample Brand Update",
                   "value": {
-                    "Name": "Test",
+                    "Name": "Tested",
                     "Country": "USA",
-                    "StartingDate": "0000",
+                    "StartingDate": "0001",
                     "Logo": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4 8/w38GIAXDIBKE0DHxglj2+j3+I+m0+gBwzYvN/fBwHKE0DHxglj2+gAAAAABJRU5ErkJggg==",
                     "Headquarters": "Test",
                     "Founders": "Test & Test"
