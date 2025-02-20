@@ -5,6 +5,7 @@ General Info
   * Victor Manuel Malpica Castro
   * Johann Helaman Tellez Rodriguez
   * Ivan David Ponce Lopez
+  * Steve Chrispin
 
 ### Commercial Vehicle Information Database
 #### What will the API do?
