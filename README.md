@@ -27,7 +27,7 @@ Please refer to the [Proposal.md](https://github.com/claymeisByuI/CSe341_FinalPr
 | IVAN    |  ✅| Aftermarket Controller                               | Ivan                  |
 | VICTOR  |  ✅| OAuth                                                | GROUP FIRST           |
 | CLAYTON |  ✅| Data restrictions                                    | Víctor & Clayton      |
-| VICTOR  |  ✅| Tests                                                | Víctor & Clayton      |
+| CLAYTON |  ✅| Tests                                                | Víctor & Clayton      |
 | VICTOR  |  ✅| Tests                                                | Víctor & Clayton      |
 | TEAM    |  ✅| Video presentation of node project,                  |                       |  
 | TEAM    |  ✅| all routes functioning, mongoDB data being modified, |                       |
