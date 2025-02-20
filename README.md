@@ -3,22 +3,25 @@ Please refer to the [Proposal.md](https://github.com/claymeisByuI/CSe341_FinalPr
 
 
 
-| **DONE** | **TASK**                                                 | **Assigned to**           |
-|-----| ---------------------------------------------------- | --------------------- |
-|  ✅| Node.js project creation                             | Done on 1/29 in Group |
-|  ✅| Create git repo and share with group                 | Done on 1/29 in Group |
-|  ✅| Render.com server | Victor | 
-|  ✅| MongoDB setup                                        | Victor                |
-|  ✅| Populate Mongodb Database                            | Victor                |
-|  ✅| API Swagger documentation for all API routes         | Clayton               |
-|  ✅| Users Controller                                     | Johann                |
-|  ✅| Parts Controller                                     | Ivan                  |
-|  ✅| Brands Controller                                    | Clayton               |
-|  ✅| CarDealershipFranchise Controller                    | Victor                |
-|  ✅| Vehicle Controller                                   | Johann                |
-|  ✅| Aftermarket Controller                               | Ivan                  |
-|  ✅| OAuth and Data restrictions                          | Víctor & Clayton                |
-|  ✅| Tests                                                | Víctor & Clayton                |
-|     | Video presentation of node project,                  |                       |
-|     | all routes functioning, mongoDB data being modified, |                       |
-|     | API documentation.                               |                       |
+| Done By | **DONE** | **TASK**                                        | **Assigned to**           |
+|---------|-----| ---------------------------------------------------- | --------------------- |
+| TEAM    |  ✅| Node.js project creation                             | Done on 1/29 in Group |
+| TEAM    |  ✅| Create git repo and share with group                 | Done on 1/29 in Group |
+| VICTOR  |  ✅| Render.com server | Victor | 
+| VICTOR  |  ✅| MongoDB setup                                        | Victor                |
+| VICTOR  |  ✅| Populate Mongodb Database                            | Victor                |
+| CLAYTON |  ✅| API Swagger documentation for all API routes         | Clayton               |
+| JOHANN  |  ✅| Users Controller                                     | Johann                |
+| IVAN    |  ✅| Parts Controller                                     | Ivan                  |
+| CLAYTON |  ✅| Brands Controller                                    | Clayton               |
+| VICTOR  |  ✅| CarDealershipFranchise Controller                    | Victor                |
+| JOHANN  |  ✅| Vehicle Controller                                   | Johann                |
+| IVAN    |  ✅| Aftermarket Controller                               | Ivan                  |
+| VICTOR  |  ✅| OAuth                                                | GROUP FIRST           |
+| CLAYTON |  ✅| Data restrictions                                    | Víctor & Clayton      |
+| VICTOR  |  ✅| Tests                                                | Víctor & Clayton      |
+| VICTOR  |  ✅| Tests                                                | Víctor & Clayton      |
+| TEAM    |  ✅| Video presentation of node project,                  |                       |  
+| TEAM    |  ✅| all routes functioning, mongoDB data being modified, |                       |
+| CLAYTON |  ✅| API documentation.                                   |                        |
+| GROUP   |  ✅| API documentation.                                   |                       |
