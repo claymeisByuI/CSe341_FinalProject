@@ -93,6 +93,10 @@ async function startServer() {
           res.redirect('/');
         },
       )
+      .use((req, res, next) => {
+        console.log(`${req.method} ${req.url} at ${new Date().toISOString()}`);
+        next();
+      })
       .listen(port, () => {
         console.log(`Server is running on port ${port}`);
       });

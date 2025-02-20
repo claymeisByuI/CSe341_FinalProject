@@ -1,7 +1,7 @@
 // vehiclesController.js
 const Vehicle = require('../models/vehicleModel');
 
-// Create a vehicle
+// 🚗💨 Create a vehicle
 exports.createVehicle = async (req, res) => {
   /*
    #swagger.tags = ['Vehicle']
@@ -50,7 +50,7 @@ exports.createVehicle = async (req, res) => {
     await vehicle.save();
     res.status(201).json(vehicle);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Oopsie! Couldn't save your cool ride: ${error.message}` });
   }
 };
 
@@ -108,10 +108,10 @@ exports.updateVehicle = async (req, res) => {
   */
   try {
     const vehicle = await Vehicle.findByIdAndUpdate(req.params.vehicleId, req.body, { new: true });
-    if (!vehicle) return res.status(404).json({ message: 'Vehicle not found' });
+    if (!vehicle) return res.status(404).json({ message: 'Vehicle vanished into the void! 🔎' });
     res.status(200).json(vehicle);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Something went vroom-vroom wrong: ${error.message}` });
   }
 };
 
@@ -140,7 +140,7 @@ exports.getVehicles = async (req, res) => {
     const vehicles = await Vehicle.find();
     res.status(200).json(vehicles);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Failed to fetch the garage: ${error.message}` });
   }
 };
 
@@ -169,7 +169,7 @@ exports.findVehiclesByBrand = async (req, res) => {
     const vehicles = await Vehicle.find({ Brand: req.query.brand });
     res.status(200).json(vehicles);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Oops, can't find those ${req.query.brand} beauties: ${error.message}` });
   }
 };
 
@@ -198,7 +198,7 @@ exports.findVehiclesByYear = async (req, res) => {
     const vehicles = await Vehicle.find({ Year: req.query.year });
     res.status(200).json(vehicles);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Year ${req.query.year}? Must be a classic! But there's an error: ${error.message}` });
   }
 };
 
@@ -227,7 +227,7 @@ exports.findVehiclesByType = async (req, res) => {
     const vehicles = await Vehicle.find({ Type: req.query.type });
     res.status(200).json(vehicles);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Sorry, no ${req.query.type} in stock! 🚜 ${error.message}` });
   }
 };
 
@@ -262,10 +262,10 @@ exports.getVehicleById = async (req, res) => {
   */
   try {
     const vehicle = await Vehicle.findById(req.params.vehiclesId);
-    if (!vehicle) return res.status(404).json({ message: 'Vehicle not found' });
+    if (!vehicle) return res.status(404).json({ message: '🚨 Vehicle missing! Call the authorities! 🚔' });
     res.status(200).json(vehicle);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Error retrieving vehicle. Maybe it ran away? 🏃💨 ${error.message}` });
   }
 };
 
@@ -300,9 +300,9 @@ exports.deleteVehicleById = async (req, res) => {
   */
   try {
     const vehicle = await Vehicle.findByIdAndDelete(req.params.vehiclesId);
-    if (!vehicle) return res.status(404).json({ message: 'Vehicle not found' });
-    res.status(200).json({ message: 'Vehicle deleted successfully' });
+    if (!vehicle) return res.status(404).json({ message: 'Vehicle already ghosted. 👻' });
+    res.status(200).json({ message: '🚗💥 Vehicle deleted successfully. Gone but not forgotten!' });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: `Couldn't scrap this vehicle. Error: ${error.message}` });
   }
 };
